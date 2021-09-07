@@ -57,6 +57,13 @@ const HooksLotto = React.memo(() => {
     console.log("create lotto numbers");
   }, [winNumbers]);
 
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    }
+  }, []);
+
   const onClickRedo = useCallback(() => {
     console.log("onClickRedo");
     console.log(winNumbers);
