@@ -28,14 +28,13 @@ const HooksLotto = React.memo(() => {
   const lottonumbers = useMemo(() => getWinNumbers(), []);
   const timeouts = useRef([]);
 
-  const [winBalls, setWinBalls] = useState([]);
   const [winNumbers, setWinNumbers] = useState(lottonumbers);
+  const [winBalls, setWinBalls] = useState([]);
   const [bonus, setBonus] = useState(null);
   const [redo, setRedo] = useState(false);
   const [powerBall, setPowerBall] = useState(null);
 
   useEffect(() => {
-    console.log("useEffect");
     for (let i = 0; i < winNumbers.length - 2; i++) {
       timeouts.current[i] = setTimeout(() => {
         setWinBalls((prevWinBalls) => [...prevWinBalls, winNumbers[i]]);
@@ -61,12 +60,12 @@ const HooksLotto = React.memo(() => {
   useEffect(() => {
     if (!mounted.current) {
       mounted.current = true;
+    } else {
+      // 업데이트 일때만 실행되는 것들
     }
-  }, []);
+  }, []); // [] 안에 바뀔 값을 넣어준다
 
   const onClickRedo = useCallback(() => {
-    console.log("onClickRedo");
-    console.log(winNumbers);
     setWinNumbers(getWinNumbers());
     setWinBalls([]);
     setBonus(null);
