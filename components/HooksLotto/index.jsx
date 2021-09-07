@@ -61,8 +61,10 @@ const HooksLotto = React.memo(() => {
   useEffect(() => {
     if (!mounted.current) {
       mounted.current = true;
+    } else {
+      // 업데이트 일때만 실행되는 것들
     }
-  }, []);
+  }, []); // [] 안에 바뀔 값을 넣어준다
 
   const onClickRedo = useCallback(() => {
     console.log("onClickRedo");
