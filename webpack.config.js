@@ -2,7 +2,7 @@ const path = require("path");
 const RefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = {
-  name: "webpack-multiplication",
+  name: "jin-practice",
   mode: "development",
   devtool: "eval",
 
