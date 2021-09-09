@@ -10,6 +10,7 @@ import HooksLotto from "./components/HooksLotto";
 // import ClassRPS from "./components/ClassRPS";
 // import HooksRPS from "./components/HooksRPS";
 import HooksTictactoe from "./components/HooksTictactoe";
+import MineSearch from "./components/MineSearch";
 // import {hot} from 'react-hot-loader/root'
 
 // const Hot = hot(Multiplication);
@@ -26,7 +27,8 @@ ReactDOM.render(
     <HooksRPS />
     <ClassLotto />
     <HooksLotto /> */}
-    <HooksTictactoe />
+    {/* <HooksTictactoe /> */}
+    <MineSearch />
   </React.StrictMode>,
   document.querySelector("#root")
 );

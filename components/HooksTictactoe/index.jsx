@@ -22,7 +22,7 @@ const reducer = (state, action) => {
     case CLICK_CELL: {
       const tableData = [...state.tableData];
       tableData[action.row] = [...tableData[action.row]]; // immer makes this easer
-      // example of immer
+      // example of immer (immer is a js library)
 
       // const nextState = {
       //   ...state,
@@ -154,7 +154,7 @@ const HooksTictactoe = () => {
 
   console.log("Whole rendering");
   return (
-    <div>
+    <div className="ttt">
       <h1>Hooks Tictactoe</h1>
       <Table onClick={onClickTable} tableData={tableData} dispatch={dispatch} />
       {winner && <div>'{winner}' is winner</div>}
