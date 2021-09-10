@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 
-const Multiplication = () => {
+const HooksMultiplication = () => {
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -51,7 +51,7 @@ const Multiplication = () => {
   );
 };
 
-export default Multiplication;
+export default HooksMultiplication;
 
 // const React = require("react");
 // const { Component } = require("react");
