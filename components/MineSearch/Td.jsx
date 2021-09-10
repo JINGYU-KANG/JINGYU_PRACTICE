@@ -1,4 +1,10 @@
-import React, { useContext, useCallback } from "react";
+import React, {
+  useContext,
+  useCallback,
+  useMemo,
+  useEffect,
+  useRef,
+} from "react";
 import {
   CODE,
   OPEN_CELL,
@@ -57,7 +63,7 @@ const getTdText = (code) => {
   }
 };
 
-const Td = ({ rowIndex, cellIndex }) => {
+const Td = React.memo(({ rowIndex, cellIndex }) => {
   const { tableData, halted, dispatch } = useContext(TableContext);
 
   const onClickTd = useCallback(() => {
@@ -113,15 +119,49 @@ const Td = ({ rowIndex, cellIndex }) => {
     [tableData[rowIndex][cellIndex], halted]
   );
 
+  // const ref = useRef([]);
+  // useEffect(() => {
+  //   console.log(tableData === ref.current[0], halted === ref.current[1]);
+  //   ref.current = [tableData, halted];
+  // }, [tableData, halted]);
+  //
+
+  // use the useMemo for caching
+  // return useMemo(
+  //   () => (
+  //     <td
+  //       style={getTdStyle(tableData[rowIndex][cellIndex])}
+  //       onClick={onClickTd}
+  //       onContextMenu={onRightClickTd}
+  //     >
+  //       {getTdText(tableData[rowIndex][cellIndex])}
+  //     </td>
+  //   ),
+  //   [tableData[rowIndex][cellIndex], halted]
+  // );
+
+  return (
+    <RealTd
+      onClickTd={onClickTd}
+      onRightClickTd={onRightClickTd}
+      data={tableData[rowIndex][cellIndex]}
+    />
+  );
+});
+
+// devide component for optimisation
+const RealTd = React.memo(({ onClickTd, onRightClickTd, data }) => {
+  console.log("rendering");
+
   return (
     <td
-      style={getTdStyle(tableData[rowIndex][cellIndex])}
+      style={getTdStyle(data)}
       onClick={onClickTd}
       onContextMenu={onRightClickTd}
     >
-      {getTdText(tableData[rowIndex][cellIndex])}
+      {getTdText(data)}
     </td>
   );
-};
+});
 
 export default Td;

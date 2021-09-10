@@ -3,14 +3,14 @@ import Table from "./Table";
 import Form from "./Form";
 
 export const CODE = {
-  MINE: -7,
+  OPENED: 0,
   NORMAL: -1,
   QUESTION: -2,
   FLAG: -3,
   QUESTION_MINE: -4,
   FLAG_MINE: -5,
   CLICKED_MINE: -6,
-  OPENED: 0,
+  MINE: -7,
 };
 
 export const TableContext = createContext({
@@ -33,7 +33,7 @@ const initialState = {
 };
 
 const plantMine = (row, cell, mines) => {
-  console.log(row, cell, mines);
+  // console.log(row, cell, mines);
   const candidate = Array(row * cell)
     .fill()
     .map((arr, i) => {
@@ -176,12 +176,12 @@ const reducer = (state, action) => {
       checkAround(action.row, action.cell);
       let halted = false;
       let result = "";
-      console.log(
-        state.data.row * state.data.cell - state.data.mines,
-        "openedcount",
-        state.openedCount,
-        openedCount
-      );
+      // console.log(
+      //   state.data.row * state.data.cell - state.data.mines,
+      //   "openedcount",
+      //   state.openedCount,
+      //   openedCount
+      // );
 
       if (
         state.data.row * state.data.cell - state.data.mines ===
@@ -318,7 +318,9 @@ const MineSearch = () => {
   }, [halted]);
 
   return (
+    // <TableContext.Provider value={{tableData:state.tableData,halted:state.halted, dispatch}}>
     <TableContext.Provider value={value}>
+      <h1>Mine Search</h1>
       <Form />
       <div>{timer}</div>
       <Table />

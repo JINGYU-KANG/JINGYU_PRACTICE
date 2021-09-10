@@ -1,10 +1,17 @@
-import React, { useState, useCallback, useContext } from "react";
+import React, {
+  useState,
+  useCallback,
+  useContext,
+  useRef,
+  useEffect,
+} from "react";
 import { TableContext, START_GAME } from "./";
 
 const Form = () => {
   const [row, setRow] = useState(10);
   const [cell, setCell] = useState(10);
   const [mines, setMines] = useState(20);
+  // const value = useContext(TableContext);
   const { dispatch } = useContext(TableContext);
 
   const onChangeRow = useCallback((e) => {
@@ -17,11 +24,23 @@ const Form = () => {
     setMines(e.target.value);
   }, []);
   const onClickBtn = useCallback(() => {
+    // value.dispatch({ type: START_GAME, row, cell, mines });
     dispatch({ type: START_GAME, row, cell, mines });
   }, [row, cell, mines]);
 
+  // const ref = useRef([]);
+  // useEffect(() => {
+  //   console.log(
+  //     row === ref.current[0],
+  //     cell === ref.current[1],
+  //     mines === ref.current[2],
+  //     TableContext === ref.current[3]
+  //   );
+  //   ref.current = [row, cell, mines, TableContext];
+  // }, [row, cell, mines, TableContext]);
+
   return (
-    <div>
+    <>
       <input
         type="number"
         placeholder="Row"
@@ -41,7 +60,7 @@ const Form = () => {
         onChange={onChangeMines}
       />
       <button onClick={onClickBtn}>Start</button>
-    </div>
+    </>
   );
 };
 
