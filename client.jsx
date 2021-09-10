@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Multiplication from "./components/Multiplication";
-import WordRelay from "./components/WordRelay";
+import Multiplication from "./components/HooksMultiplication";
+import WordRelay from "./components/HooksWordRelay";
 import NumberBaseball from "./components/NumberBaseball";
 import ClassResponseCheck from "./components/ClassResponseCheck";
 import HooksResponseCheck from "./components/HooksResponseCheck";
@@ -11,6 +11,7 @@ import HooksLotto from "./components/HooksLotto";
 // import HooksRPS from "./components/HooksRPS";
 import HooksTictactoe from "./components/HooksTictactoe";
 import MineSearch from "./components/MineSearch";
+import Games from ".";
 // import {hot} from 'react-hot-loader/root'
 
 // const Hot = hot(Multiplication);
@@ -26,9 +27,10 @@ ReactDOM.render(
     <ClassRPS />
     <HooksRPS />
     <ClassLotto />
-    <HooksLotto /> */}
-    {/* <HooksTictactoe /> */}
-    <MineSearch />
+    <HooksLotto />
+    <HooksTictactoe />
+    <MineSearch /> */}
+    <Games />
   </React.StrictMode>,
   document.querySelector("#root")
 );
