@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HooksMultiplication from "./components/HooksMultiplication";
-import HooksWordRelay from "./components/HooksWordRelay";
-import NumberBaseball from "./components/NumberBaseball";
-import ClassResponseCheck from "./components/ClassResponseCheck";
-import HooksResponseCheck from "./components/HooksResponseCheck";
-import ClassLotto from "./components/ClassLotto";
-import HooksLotto from "./components/HooksLotto";
-import ClassRPS from "./components/ClassRPS";
-import HooksRPS from "./components/HooksRPS";
-import HooksTictactoe from "./components/HooksTictactoe";
-import MineSearch from "./components/MineSearch";
+import Game from "./Game";
+// import HooksMultiplication from "./components/HooksMultiplication";
+// import HooksWordRelay from "./components/HooksWordRelay";
+// import NumberBaseball from "./components/NumberBaseball";
+// import ClassResponseCheck from "./components/ClassResponseCheck";
+// import HooksResponseCheck from "./components/HooksResponseCheck";
+// import ClassLotto from "./components/ClassLotto";
+// import HooksLotto from "./components/HooksLotto";
+// import ClassRPS from "./components/ClassRPS";
+// import HooksRPS from "./components/HooksRPS";
+// import HooksTictactoe from "./components/HooksTictactoe";
+// import MineSearch from "./components/MineSearch";
 // import {hot} from 'react-hot-loader/root'
 
 // const Hot = hot(Multiplication);
@@ -18,7 +19,7 @@ import MineSearch from "./components/MineSearch";
 ReactDOM.render(
   <React.StrictMode>
     {/* <Hot/> */}
-    <HooksMultiplication />
+    {/* <HooksMultiplication />
     <HooksWordRelay />
     <NumberBaseball />
     <ClassResponseCheck />
@@ -28,7 +29,8 @@ ReactDOM.render(
     <ClassLotto />
     <HooksLotto />
     <HooksTictactoe />
-    <MineSearch />
+    <MineSearch /> */}
+    <Game />
   </React.StrictMode>,
   document.querySelector("#root")
 );
